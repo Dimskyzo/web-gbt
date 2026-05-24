@@ -1,0 +1,2758 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <!-- Font Poppins & Font Awesome buat icon -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hwavzell</title>
+    <meta name="description" content="Portofolio resmi Hwavzell. Menampilkan profil, sertifikat keahlian, dan proyek terintegrasi secara profesional.">
+    <meta name="keywords" content="Hwavzell, Dimas Satrio Saputra, Portofolio, Web Developer, Dimskyzo, Hwavzell Discord">
+    <meta name="author" content="M. Dimas Satrio Saputra">
+
+
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #292948;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* EFEK BULATAN BLUR DI BELAKANG (Kiri Atas) */
+body::before {
+    content: "";
+    position: fixed; /* Biar nempel pas di-scroll */
+    top: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 78, 205, 0.4) 0%, transparent 70%);
+    filter: blur(80px);
+    z-index: -1;
+}
+
+/* EFEK BULATAN BLUR DI BELAKANG (Kanan Bawah) */
+body::after {
+    content: "";
+    position: fixed;
+    bottom: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, transparent 70%);
+    filter: blur(100px);
+    z-index: -1;
+}
+
+/* Tambahin satu lagi di tengah biar mirip gambar lo */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 20, 147, 0.2) 0%, transparent 70%);
+    filter: blur(60px);
+    z-index: -1;
+}
+/* ================= NAVBAR ================= */
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    /* GANTI INI: Pake warna #1a1a2e tapi kasih transparansi 0.7 */
+    background: rgba(26, 26, 46, 0.7); 
+    
+    /* TAMBAHIN INI BIAR EFEK TRANSPARANNYA MEWAH */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+/* khusus contact jadi button */
+.contact {
+    padding: 6px 15px;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #D56BE5);
+    color: rgb(0, 0, 0) !important;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: 20px;
+    color: #d9c7c7 !important;
+}
+
+.menu {
+    margin-left: auto;
+    display: flex;
+    align-items: center; /* INI KUNCINYA */
+    gap: 30px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #d9c7c7 !important;
+    font-size: 14px;
+}
+
+.cta button {
+    background: linear-gradient(90deg, #c471ed, #f64f59);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+/* ================= HERO ================= */
+.hero {
+    height: 100vh;
+    background: url("https://moewalls.com/wp-content/uploads/2026/03/wuthering-waves-denia-thumb-1.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+    position: relative;
+    margin-top: 60px;
+}
+
+/* overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.7),
+        rgba(0,0,0,0.3),
+        transparent
+    );
+}
+
+.hero-content {
+    position: relative;
+    color: white;
+    max-width: 500px;
+}
+
+.hero-content h1 {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.btn-start {
+    margin-top: 25px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(90deg, #ff4ecd, #a855f7);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 5px 20px rgba(255, 78, 205, 0.5);
+    transition: 0.3s;
+}
+
+.btn-start:hover {
+    transform: scale(1.05);
+}
+
+/* ================= SECTION BAWAH ================= */
+.section {
+    padding: 100px 60px;
+    color: white;
+    position: relative;
+}
+
+/* background aesthetic */
+.section::before {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: purple;
+    filter: blur(150px);
+    top: 0;
+    left: 0;
+    opacity: 0.6;
+}
+
+.section::after {
+    content: "";
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: pink;
+    filter: blur(150px);
+    bottom: 0;
+    right: 0;
+    opacity: 0.6;
+}
+
+.section h2 {
+    margin-bottom: 20px;
+}
+.about {
+    padding: 120px 60px;
+    position: relative;
+}
+
+/* container biar rapi */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 50px;
+}
+
+/* text */
+.about-text {
+    max-width: 500px;
+    color: white;
+}
+
+.about-text h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* tombol */
+.about-text button {
+    margin-top: 10px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #ff4ecd, #6a5cff);
+    color: white;
+    cursor: pointer;
+}
+
+/* image */
+.about-img img {
+    width: 300px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* CARD WRAPPER */
+.faq-card {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+    border-radius: 25px;
+
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(15px);
+
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+.faq h2 {
+    text-align: center;
+    font-size: 52px;
+    margin-bottom: 70px;
+    font-weight: 600;
+
+    background: linear-gradient(90deg, #ff4ecd, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    text-shadow: 0 5px 25px rgba(168, 85, 247, 0.4);
+}
+
+/* CHAT BASE */
+.chat {
+    display: flex;
+    align-items: center;
+    margin: 25px 0;
+    gap: 15px;
+}
+
+/* KANAN */
+.chat.right {
+    justify-content: flex-end;
+}
+
+/* GAMBAR */
+.chat img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+/* BUBBLE */
+.bubble {
+    max-width: 380px;
+    padding: 18px 22px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.9);
+    color: black;
+    position: relative;
+}
+
+/* NAMA */
+.bubble .name {
+    position: absolute;
+    top: -16px;
+    left: 15px;
+    background: #ff4ecd;
+    color: white;
+    padding: 4px 14px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+/* NAMA KANAN */
+.chat.right .bubble .name {
+    left: auto;
+    right: 15px;
+}
+
+/* WARNA */
+.chat.pink .name { background: #ff4ecd; }
+.chat.blue .name { background: #4dabf7; }
+.chat.purple .name { background: #c084fc; }
+
+/* STICKER GAMBAR */
+.sticker-img img {
+    width: 200px;   /* sebelumnya 120px → sekarang lebih gede */
+    height: auto;   /* tetap jaga rasio */
+    border-radius: 15px;
+}
+
+/* biar posisi enak */
+.chat.right .sticker-img {
+    margin-right: 10px;
+}
+
+/* warna tambahan */
+.chat.green .name {
+    background: #22c55e;
+}
+html {
+    scroll-behavior: smooth;
+}
+section {
+    scroll-margin-top: 80px;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer {
+    padding: 80px 60px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.footer h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.footer p {
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.social {
+    margin: 20px 0;
+}
+
+.social a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.social a:hover {
+    opacity: 1;
+    color: #ff4ecd;
+}
+
+.copy {
+    font-size: 12px;
+    opacity: 0.5;
+    margin-top: 20px;
+}
+
+.social a {
+    font-size: 26px;
+    margin: 0 12px;
+    color: white;
+    opacity: 0.7;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.social a:hover {
+    opacity: 1;
+    transform: scale(1.2);
+    color: #ff4ecd;
+}
+
+.social a.instagram:hover {
+    color: #E1306C; /* IG pink */
+}
+
+.social a.github:hover {
+    color: #ffffff; /* GitHub putih */
+}
+
+.social a.tiktok:hover {
+    color: #25F4EE; /* TikTok cyan */
+}
+
+.music-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+}
+
+.music-box {
+    width: 1000px;
+    height: 600px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff7ac6, #84c0fc) !important;
+backdrop-filter: blur(15px);
+border: 1px solid rgba(255, 255, 255, 0.2); /*background: linear-gradient(135deg, #ff7ac6, #84c0fc)*/
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.4);
+
+    transform: scale(0.7) translateY(30px);
+    opacity: 0;
+    transition: 0.3s cubic-bezier(.2,.8,.2,1);
+}
+
+/* HEADER */
+.music-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bubble-header {
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.bubble-header img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.close-btn {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* CONTENT */
+.music-content {
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+/* PLAYLIST */
+.playlist {
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.playlist img {
+    width: 70px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+/* SONG AREA */
+/* Update bagian ini di CSS kamu */
+.song-area {
+    flex: 1;
+    min-width: 0; /* PENTING: Agar anak elemen tidak merusak layout flex */
+}
+
+
+.song-area h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+
+
+
+.song-item img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.song-item h4 {
+    margin-top: 10px;
+}
+
+/* PLAYER */
+.player {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.player img {
+    width: 60px;
+    border-radius: 10px;
+}
+
+.controls button {
+    font-size: 20px;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.progress-area {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#progress {
+    flex: 1;
+}
+
+.like {
+    border: none;
+    background: none;
+    font-size: 20px;
+    color: red;
+}
+
+#volume {
+    width: 80px;
+}
+
+.playlist img.active {
+    border: 2px solid white;
+    transform: scale(1.1);
+}
+.song-item img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Ini paksaan biar kotak sempurna */
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+}
+.playlist img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+}
+.player img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+    flex-shrink: 0;
+    display: block;
+}
+#cover {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.player {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 95%;
+    max-width: 950px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255,255,255,0.92);
+    border-radius: 20px;
+    padding: 15px 20px;
+}
+
+/* tengah control fix */
+.control-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 8px;
+}
+.controls button {
+    font-size: 18px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.controls button:hover {
+    transform: scale(1.2);
+}
+/* tombol sejajar tengah */
+.controls {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+/* progress di bawah tombol */
+.progress-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+/* cover kiri fix */
+.player img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#sound {
+    width: 25px;
+    height: 25px;
+}
+
+
+/* hover effect */
+.song-item:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.6);
+}
+
+/* selected state background: linear-gradient(135deg, #1f1f2e, #12121a); */
+
+
+/* animasi glow kecil */
+.song-item.active::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.3), transparent);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.1); }
+    100% { opacity: 0.2; transform: scale(1); }
+}
+
+#title {
+    max-width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 95%;
+    max-width: 950px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 🔥 ini kuncinya */
+    gap: 25px;
+}
+.info {
+    flex: 0 0 250px;   /* 🔥 KUNCI LEBAR, GA BOLEH NGEMBANG */
+   
+    overflow: hidden;
+}
+
+#title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.control-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 8px;
+
+    margin-left: -45px; /* 👈 ini geser ke kiri */
+}
+
+.song-list {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    /* Kasih ruang bebas di dalam kontainer */
+    padding-top: 15px;    /* Ruang buat efek scale ke atas */
+    padding-bottom: 25px; /* Ruang buat efek scale ke bawah & scrollbar */
+    padding-left: 15px;   /* Ruang buat efek glow kartu paling kiri */
+    padding-right: 15px;  /* Ruang buat kartu paling kanan */
+
+    /* Biar posisinya nggak geser karena padding, kita tarik sedikit pakai margin */
+    margin-left: -15px; 
+    
+    width: calc(100% + 30px); /* Lebarin area overflow-nya */
+    scroll-behavior: smooth;
+}
+
+.song-list.fade-out {
+    opacity: 0;
+    transform: translateY(10px); /* dikit aja biar ga lebay */
+}
+
+.song-list.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+
+.playlist img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 15px;
+    display: block;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+    flex-shrink: 0;
+}
+
+/* hover halus (ga terlalu gede) */
+.playlist img:hover {
+    transform: scale(1.05); /* sebelumnya 1.12 */
+    filter: brightness(1.1);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* aktif juga jangan terlalu ekstrem */
+.playlist img.active {
+    border: 2px solid white;
+    transform: scale(1.08);
+    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.playlist {
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+    /* --- INI KUNCINYA --- */
+    height: 360px;           /* Angka ini harus pas biar berhenti sebelum player */
+    overflow-y: auto;        /* Biar bisa di-scroll di dalam kotak doang */
+    overflow-x: visible;     /* Biar hover tetap aman */
+    
+    padding: 15px 10px;      /* Kasih ruang buat hover */
+    margin-top: 0;           /* Reset margin biar gak ketarik ke atas */
+    position: relative;      /* Biar dia stay di jalurnya */
+
+    /* EFEK MENGHILANG (Atas & Bawah) */
+    -webkit-mask-image: linear-gradient(to bottom, 
+        transparent 0%, 
+        black 10%, 
+        black 85%, 
+        transparent 100%
+    );
+    mask-image: linear-gradient(to bottom, 
+        transparent 0%, 
+        black 10%, 
+        black 85%, 
+        transparent 100%
+    );
+}
+
+/* Biar gak ada scrollbar jelek di samping album */
+.playlist::-webkit-scrollbar {
+    width: 0px;
+}
+
+.music-content {
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+    align-items: flex-start; /* Biar playlist nggak narik ke bawah */
+}
+
+
+/* muncul animasi */
+.song-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* hover: ringan aja */
+.song-item:hover {
+    transform: translateY(-2px) scale(1.03);
+    background: rgba(255,255,255,0.6);
+}
+
+
+
+/* kalau active + hover bareng */
+.song-item.active:hover {
+    transform: translateY(-3px) scale(1.08);
+}
+.song-item h4 {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.song-item .artist {
+    display: block;
+    font-size: 11px;
+    opacity: 0.7;
+    margin-top: 3px;
+}
+.info span {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+
+.music-modal.show .music-box {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+
+
+.song-list::-webkit-scrollbar {
+    height: 6px;
+}
+
+.song-list::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+}
+
+.song-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+
+.song-item {
+    flex: 0 0 180px;
+    width: 180px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 20px;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+}
+.song-item.show { opacity: 1; transform: translateY(0); }
+.song-item:hover { transform: translateY(-2px) scale(1.03); background: rgba(255,255,255,0.6); }
+.song-item.active { transform: translateY(-2px) scale(1.06); background: linear-gradient(135deg, #830ab2, #52e6cd); color: white; box-shadow: 0 10px 30px rgba(255, 78, 205, 0.4); }
+.divider-vertical {
+    width: 1px;               /* Tipis biar elegan */
+    height: 340px;            /* Sesuaikan tinggi biar gak kena player bawah */
+    background: rgba(255, 255, 255, 0.2); /* Putih transparan tipis saja */
+    align-self: center;       /* Center secara vertikal */
+    margin-left: -10px;       /* Geser ke kiri mendekati album */
+    margin-right: 15px;       /* Kasih jarak ke list lagu */
+    flex-shrink: 0;           /* Biar garisnya gak gepeng pas layar kecil */
+}
+
+/* Teks Angka & Info: Bikin Gelap biar kontras sama card putih */
+#current, #duration {
+    font-family: 'Poppins', sans-serif !important;
+    color: #333 !important; 
+    font-size: 13px;
+    font-weight: 400;
+    opacity: 1 !important;
+}
+
+
+
+
+
+/* BAR MUSIK (Ini yang kamu mau) */
+input[type="range"] {
+    -webkit-appearance: none;
+    background: #e0e0e0; /* Jalur abu-abu terang biar kelihatan */
+    height: 5px;
+    border-radius: 10px;
+    outline: none;
+}
+
+/* Buletan Penarik (Pink) */
+#progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    background: #ff4ecd; 
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 78, 205, 0.3);
+}
+
+/* Buletan Volume (Ungu) */
+#volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    background: #a855f7;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+</style>
+<style>
+        /* CSS MODAL BIAR MELAYANG DI TENGAH */
+.modal-overlay {
+    position: fixed; /* Biar melayang, gak nempel di bawah footer */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Gelapin background luar */
+    backdrop-filter: blur(8px);
+    display: none; /* Sembunyi dulu */
+    justify-content: center;
+    align-items: center;
+    z-index: 99999; /* Pastiin paling depan, ngalahin navbar & music box */
+}
+
+/* Munculin modal pas class 'active' ditambahin */
+.modal-overlay.active {
+    display: flex;
+}
+
+.modal-box {
+    transform: scale(0.8);
+    transition: 0.3s ease-in-out;
+}
+
+.modal-overlay.active .modal-box {
+    transform: scale(1);
+}
+    </style>
+<style>
+/* Animasi Transisi Halaman */
+.page-transition {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-out {
+    opacity: 0;
+    transform: scale(0.9); /* Efek mengecil pas ilang */
+    pointer-events: none;
+}
+
+.fade-in {
+    opacity: 1;
+    transform: scale(1); /* Efek balik normal pas muncul */
+    pointer-events: auto;
+}
+
+/* Hover Tombol Back Gallery */
+#btn-back-gallery {
+    background: #f5f5f5;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    color: #333;
+    transition: all 0.3s ease; /* Biar animasinya mulus */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 90px;
+    margin-bottom: 20px;
+}
+
+#btn-back-gallery:hover {
+    background: #111; /* Berubah jadi hitam */
+    color: #fff;      /* Teks jadi putih */
+    transform: translateX(-5px); /* Geser ke kiri dikit */
+}
+
+
+/* Class tambahan untuk mematikan scroll body */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Animasi Masuk */
+@keyframes modalIn {
+    from { opacity: 0; transform: scale(0.8) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* Animasi Keluar */
+@keyframes modalOut {
+    from { opacity: 1; transform: scale(1) translateY(0); }
+    to { opacity: 0; transform: scale(0.8) translateY(20px); }
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
+    display: none; /* Kita pakai display: none agar benar-benar hilang dari DOM */
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-box {
+    /* Set default animasi saat modal aktif */
+    animation: modalIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Class khusus saat modal mau ditutup */
+.modal-overlay.closing .modal-box {
+    animation: modalOut 0.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+/* Kunci scroll body saat modal aktif */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Custom Scrollbar khusus buat konten modal biar tetep cakep */
+#content-certs::-webkit-scrollbar {
+    width: 6px;
+}
+#content-certs::-webkit-scrollbar-thumb {
+    background: #e0e0e0;
+    border-radius: 10px;
+}
+#content-certs::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Biar area scroll tetep bersih tanpa batang scrollbar */
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+/* Animasi Titik Mengetik */
+.dot-ani {
+    display: inline-block;
+    width: 15px;
+    text-align: left;
+    animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
+/* Styling dasar bubble biar rapi */
+.ai-msg {
+    align-self: flex-start; 
+    background: #f1f3f5; 
+    color: #444; 
+    padding: 10px 14px; 
+    border-radius: 15px 15px 15px 4px; 
+    font-size: 12.5px; 
+    max-width: 85%; 
+    line-height: 1.5;
+}
+
+.user-msg {
+    align-self: flex-end; 
+    background: linear-gradient(135deg, #333, #000); 
+    color: #fff; 
+    padding: 10px 14px; 
+    border-radius: 15px 15px 4px 15px; 
+    font-size: 12.5px; 
+    max-width: 85%; 
+    line-height: 1.5;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+/* Efek Hover Tombol Kirim */
+.btn-send {
+    background: #000;
+    color: #fff;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease; /* Biar transisi smooth */
+}
+
+.btn-send:hover {
+    transform: scale(1.1); /* Membesar dikit */
+    background: #333; /* Warna agak terang dikit */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.btn-send:active {
+    transform: scale(0.9); /* Efek mendem pas diklik */
+}
+</style>
+
+<!-- ########################################################################## -->
+<!-- #                               HEADER HP                                # -->
+<!-- ########################################################################## -->
+<style>
+/* --- Desktop: Tombol Bar Sembunyi --- */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #d9c7c7;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu {
+        display: flex; /* Tetap flex untuk posisi */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(26, 26, 46, 0.98);
+        backdrop-filter: blur(15px);
+        gap: 0; /* Kita atur padding di dalam link-nya */
+        text-align: center;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+
+        /* --- ANIMASI SEMBUNYI (AWAL) --- */
+        max-height: 0; /* Tinggi nol biar ga keliatan */
+        overflow: hidden; /* Potong isinya */
+        opacity: 0; /* Transparan */
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Efek meluncur smooth */
+        pointer-events: none; /* Biar ga bisa diklik pas sembunyi */
+    }
+
+    /* --- ANIMASI MUNCUL (PAS AKTIF) --- */
+    .menu.active {
+        max-height: 500px; /* Kasih tinggi maksimal yang cukup buat semua menu */
+        opacity: 1; /* Muncul sempurna */
+        padding: 20px 0;
+        pointer-events: auto; /* Bisa diklik lagi */
+    }
+
+    .menu a {
+        font-size: 16px;
+        width: 100%;
+        padding: 15px 0;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: 0.3s ease;
+    }
+
+    /* Efek munculin teks satu per satu */
+    .menu.active a {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.2s; /* Nunggu background turun baru teks muncul */
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+    <div class="logo">Hwavzell</div>
+    
+    <div class="menu-toggle" id="mobile-menu" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <nav class="menu" id="nav-list">
+        <a href="#beranda" onclick="toggleMobileMenu()">Beranda</a>
+        <a href="#about" onclick="toggleMobileMenu()">About</a>
+        <a href="#">Bahasa</a>
+        <a href="javascript:void(0)" id="openMusic" onclick="toggleMobileMenu()">Musik</a>
+        <a href="#" class="contact" onclick="toggleMobileMenu()">Contact</a>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="beranda">
+    <div class="hero-content">
+        <h1>Selamat Datang Gusy</h1>
+        <p>
+            Nama saya Keyy dan ini adalah web yang saya buat sendiri 
+            untuk have fun aja si sebenernya gabut awikwok
+        </p>
+
+        <button class="btn-start">Start</button>
+    </div>
+</section>
+<section class="about reveal" id="about">
+    <div class="about-container">
+
+        <div class="about-text">
+            <h2>About Me</h2>
+            <p>
+                Haii haaiii nama ku Keyy, ya ak tau itu bukan nama asli, tapi yaa siapa yang mau nulis nama asli di page kek gini jir, kena doxing mampua gwejh.
+            </p>
+
+            <p>
+               Kalo mw yang lebih lengkapnya kesini aja ni pencet aja ini.
+            </p>
+
+            <button onclick="openProfile()">Detail Profil</button>
+        </div>
+
+        <div class="about-img">
+            <img src="https://i.imgur.com/BKzJevA.jpeg" alt="">
+        </div>
+
+    </div>
+</section>
+<!-- SECTION BAWAH -->
+<section class="faq reveal">
+    <h2>Pertanyaan Umum</h2>
+
+    <div class="faq-card reveal">
+
+        <!-- kiri -->
+        <div class="chat left pink">
+            <img src="https://i.pinimg.com/736x/a0/51/b3/a051b3968110c1d40c94e4801f119b20.jpg">
+            <div class="bubble">
+                <span class="name">Denia</span>
+                Kak, kok kamu kullbet sih?, ak jadii basah!!
+            </div>
+        </div>
+
+        <!-- kanan -->
+        <div class="chat right purple">
+            <div class="bubble">
+                <span class="name">Hwavzell</span>
+                Santai bub jangan gragas
+            </div>
+            <img src="https://i.pinimg.com/736x/95/c0/48/95c048a58e8dc884ba35f064e82daae4.jpg">
+        </div>
+
+        <!-- kiri -->
+        <div class="chat left blue">
+            <img src="https://i.pinimg.com/736x/a7/5d/cc/a75dccab148d0b67df21018c1d7b6965.jpg">
+            <div class="bubble">
+                <span class="name">Furina</span>
+                Ini web apasi kocak, gajelas bgt, tutor dek!
+            </div>
+        </div>
+
+        <!-- kanan -->
+        <div class="chat right blue">
+            <div class="bubble">
+                <span class="name">Hwavzell</span>
+                Bacot ah, suka suka aing lah, aing yang buat
+            </div>
+            <img src="https://i.pinimg.com/736x/95/c0/48/95c048a58e8dc884ba35f064e82daae4.jpg">
+        </div>
+            <!-- stiker dari kanan -->
+<div class="chat right">
+    <div class="sticker-img">
+        <img src="https://i.pinimg.com/webp/736x/76/d5/c0/76d5c0f4147da092eaaeef18dbd8424e.webp">
+    </div>
+    <img src="https://i.pinimg.com/736x/95/c0/48/95c048a58e8dc884ba35f064e82daae4.jpg">
+</div>
+
+<!-- balasan kiri -->
+<div class="chat left green">
+    <img src="https://i.pinimg.com/736x/89/df/de/89dfdedfe7e072d03b8f7b30d795a2ef.jpg">
+    <div class="bubble">
+        <span class="name">Enami Asa</span>
+        awokawok
+    </div>
+</div>
+
+    </div>
+
+</section>
+<footer class="footer">
+    <div class="footer-content">
+        <h3>Hwavzell</h3>
+        <p>Website gajelas</p>
+
+        <div class="social">
+    <a href="https://www.instagram.com/hwavzell" target="_blank" class="instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://github.com/dimskyzo" target="_blank" class="github">
+        <i class="fab fa-github"></i>
+    </a>
+
+    <a href="https://tiktok.com" target="_blank" class="tiktok">
+        <i class="fab fa-tiktok"></i>
+    </a>
+</div>
+
+        <p class="copy">© 2026 Hwavzell. All rights reserved.</p>
+    </div>
+</footer>
+
+<div class="music-modal" id="musicModal">
+  <div class="music-box">
+
+    <!-- HEADER -->
+    <div class="music-header">
+      <div class="bubble-header">
+        <img src="https://i.pinimg.com/736x/a0/51/b3/a051b3968110c1d40c94e4801f119b20.jpg">
+        <span>Pilih Backsound yang kalian suka!</span>
+      </div>
+      <span class="close-btn" id="closeMusic">✖</span>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="music-content">
+
+      <!-- LEFT PLAYLIST -->
+      <div class="playlist">
+  <img src="https://i.pinimg.com/736x/0f/fe/08/0ffe087053e4eaad0fd98da1cd287411.jpg" onclick="loadAlbum(0)">
+  <img src="https://i.pinimg.com/736x/0a/d2/cf/0ad2cfddb48a317eaa5887bcce688d67.jpg" onclick="loadAlbum(1)">
+  <img src="https://i.pinimg.com/736x/d8/4c/fa/d84cfade6f6eef7856fc4899a9ab6c34.jpg" onclick="loadAlbum(2)">
+  <img src="https://i.pinimg.com/736x/26/3f/d5/263fd5a54e8b8cea4ac3510977f081f3.jpg" onclick="loadAlbum(3)">
+  <img src="https://i.pinimg.com/736x/26/3f/d5/263fd5a54e8b8cea4ac3510977f081f3.jpg" onclick="loadAlbum(4)">
+  <img src="https://i.pinimg.com/736x/26/3f/d5/263fd5a54e8b8cea4ac3510977f081f3.jpg" onclick="loadAlbum(5)">
+</div>
+<div class="divider-vertical"></div>
+      <!-- SONG LIST -->
+      <div class="song-area">
+       <h2 id="albumTitle">Pilih Album</h2>
+        <div id="songList" class="song-list"></div>
+      </div>
+
+    </div>
+
+    <!-- PLAYER -->
+    <div class="player">
+
+  <!-- COVER (kiri) -->
+  <img id="cover" src="https://i.pinimg.com/736x/76/c1/12/76c112aa45bef3ee23a2d0827d3f5f21.jpg">
+
+  <!-- INFO -->
+  <div class="info">
+    <h4 id="title" class="marquee">-</h4>
+    <span id="artistName">-</span>
+  </div>
+
+  <!-- CONTROL CENTER -->
+  <div class="control-center">
+    <div class="controls">
+      <button onclick="prevSong()">⏮</button>
+      <button id="playBtn" onclick="playSong()">▶︎</button>
+      <button onclick="nextSong()">⏭</button>
+    </div>
+
+    <div class="progress-area">
+      <span id="current">0:00</span>
+      <input type="range" id="progress" value="0">
+      <span id="duration">0:00</span>
+    </div>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <button class="like">
+    <img id="sound" src="https://www.svgrepo.com/show/505507/speaker-2.svg">
+  </button>
+  <input type="range" id="volume" min="0" max="1" step="0.01">
+
+</div>
+
+    <audio id="audio"></audio>
+  </div>
+</div>
+
+
+<div class="modal-overlay" id="modalProfil">
+    <div class="modal-box" style="background: linear-gradient(135deg, #f0f7ff, #fff0f5); color: #3d4a54; border: none; max-width: 850px; width: 90%; padding: 0; border-radius: 30px; position: relative; box-shadow: 0 20px 50px rgba(164, 180, 200, 0.25); overflow: hidden;">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px 40px; border-bottom: 1px solid #e6eef8; position: relative; z-index: 10; background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(10px);">
+            <div style="display: flex; gap: 10px; font-weight: 500; font-size: 13px; color: #7a8b99; position: relative;">
+                <div id="nav-indicator" style="position: absolute; height: 32px; background: linear-gradient(90deg, #d4e6ff, #ffd6e8); border-radius: 20px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: -1; top: 50%; transform: translateY(-50%);"></div>
+                
+                <span id="nav-home" onclick="switchTab('home')" style="cursor: pointer; padding: 6px 18px; border-radius: 20px; transition: 0.3s; display: flex; align-items: center; gap: 5px; color: #2c3e50; font-weight: 600;"> 
+                    <i class="fas fa-home" style="color: #64b5f6;"></i> Home
+                </span>
+                <span id="nav-projects" onclick="switchTab('projects')" style="cursor: pointer; padding: 6px 18px; border-radius: 20px; transition: 0.3s; display: flex; align-items: center; gap: 5px;"> 
+                    <i class="fas fa-folder" style="color: #b39ddb;"></i> Projects
+                </span>
+                <span id="nav-certs" onclick="switchTab('certs')" style="cursor: pointer; padding: 6px 18px; border-radius: 20px; transition: 0.3s; display: flex; align-items: center; gap: 5px;"> 
+                    <i class="fas fa-medal" style="color: #ffb74d;"></i> Certificates
+                </span>
+                <span id="nav-services" onclick="switchTab('services')" style="cursor: pointer; padding: 6px 18px; border-radius: 20px; transition: 0.3s; display: flex; align-items: center; gap: 5px;"> 
+                    <i class="fas fa-code" style="color: #4db6ac;"></i> Services
+                </span>
+                <span id="nav-support" onclick="switchTab('support')" style="cursor: pointer; padding: 6px 18px; border-radius: 20px; transition: 0.3s; display: flex; align-items: center; gap: 5px;"> 
+                    <i class="fas fa-gift" style="color: #f06292;"></i> Support
+                </span>
+            </div>
+            <span onclick="closeProfile()" style="cursor: pointer; font-size: 26px; color: #b0bec5; transition: 0.2s;" onmouseover="this.style.color='#f06292'" onmouseout="this.style.color='#b0bec5'">&times;</span>
+        </div>
+
+        <div id="tab-container" style="display: flex; width: 500%; transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);">
+            
+            <div id="content-home" style="width: 20%; display: flex; gap: 40px; align-items: center; text-align: left; padding: 40px; flex-shrink: 0;">
+                <div style="flex: 1.2;">
+                    <span style="background: #e1f5fe; padding: 6px 15px; border-radius: 20px; font-size: 11px; font-weight: 700; color: #0288d1; letter-spacing: 0.5px; border: 1px solid #b3e5fc;">
+                        ● Available for freelance work
+                    </span>
+                    
+                    <h1 style="font-size: 52px; margin: 20px 0 5px; line-height: 1.1; font-weight: 700; color: #2c3e50;">
+                        Hi, I'm <span style="background: linear-gradient(90deg, #4ba3e3, #ff7bb5); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Hwavzell</span>
+                    </h1>
+                    <h2 style="font-size: 35px; font-weight: 600; margin-bottom: 20px; color: #546e7a;">Frontend Developer</h2>
+                    
+                    <p style="color: #607d8b; font-size: 14px; line-height: 1.7; margin-bottom: 25px; max-width: 450px;">
+                        I create beautiful, functional, and user-centered digital experiences. With a passion for clean code and thoughtful design, I turn gabut moments into aesthetic websites.
+                    </p>
+                    
+                    <div style="display: flex; gap: 20px; margin-bottom: 30px; font-size: 13px; color: #546e7a; font-weight: 600;">
+                        <span><i class="fas fa-map-marker-alt" style="color: #64b5f6;"></i> Based in Indonesia</span>
+                        <span><i class="fas fa-calendar-check" style="color: #ff8fa3;"></i> Available Now</span>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; align-items: center;">
+                        <button class="btn-start" style="margin: 0; padding: 12px 30px; font-weight: 600; border-radius: 10px; background: linear-gradient(45deg, #5caae6, #ff8cb4); color: white; border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(92, 170, 230, 0.3); transition: 0.3s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Hire Me <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                
+                <div style="flex: 0.8;">
+                    <div style="border-radius: 25px; overflow: hidden; background: linear-gradient(135deg, #b3e5fc, #ffccde); padding: 6px; box-shadow: 0 10px 25px rgba(164,180,200,0.2);">
+                        <img src="https://i.pinimg.com/736x/22/e3/3a/22e33a2e44e34aa8027b3ccec49f7572.jpg" style="width: 100%; display: block; border-radius: 20px;">
+                    </div>
+                </div>
+            </div>
+            
+   
+
+            <div id="content-projects" style="width: 20%; padding: 40px; flex-shrink: 0; background: linear-gradient(135deg, #f0f7ff, #fff0f5); display: flex; flex-direction: column; position: relative; overflow: hidden;">
+    <div id="main-project-list" class="page-transition fade-in">
+        <h3 style="font-size: 24px; margin-bottom: 25px; font-weight: 700; color: #2c3e50;">My Projects</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; max-height: 310px; overflow-y: auto; padding: 20px 10px 20px 5px; box-sizing: border-box; margin-top: 45px;">
+            
+            <div onclick="window.open('https://github.com/Dimskyzo/test-html')" 
+                 style="cursor: pointer; border: 1px solid #cce3f5; border-radius: 16px; overflow: hidden; background: #ffffff; box-shadow: 0 8px 20px rgba(164, 180, 200, 0.4); transition: all 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 15px 25px rgba(92, 170, 230, 0.35)'; this.style.borderColor='#4ba3e3';" 
+                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(164, 180, 200, 0.4)'; this.style.borderColor='#cce3f5';">
+                
+                <div style="height: 120px; overflow: hidden; background: #eef5fc;">
+                    <img src="dadadwadad.png" style="width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s;" 
+                         onmouseover="this.style.transform='scale(1.1)'" 
+                         onmouseout="this.style.transform='scale(1)'">
+                </div>
+                <div style="padding: 16px; background: #ffffff;">
+                    <h4 style="margin: 0; font-size: 14px; font-weight: 700; color: #2c3e50;">Web and APK Code</h4>
+                    <p style="font-size: 11px; color: #7a8b99; margin-top: 4px;">UI/UX design.</p>
+                    <div style="margin-top: 10px; display: flex; gap: 5px; flex-wrap: wrap;">
+                        <span style="font-size: 9px; background: #e1f5fe; color: #0288d1; padding: 4px 8px; border-radius: 6px; font-weight: 600;">HTML</span>
+                        <span style="font-size: 9px; background: #e1f5fe; color: #0288d1; padding: 4px 8px; border-radius: 6px; font-weight: 600;">CSS</span>
+                        <span style="font-size: 9px; background: #e1f5fe; color: #0288d1; padding: 4px 8px; border-radius: 6px; font-weight: 600;">JS</span>
+                        <span style="font-size: 9px; background: #e1f5fe; color: #0288d1; padding: 4px 8px; border-radius: 6px; font-weight: 600;">C++</span>
+                        <span style="font-size: 9px; background: #e1f5fe; color: #0288d1; padding: 4px 8px; border-radius: 6px; font-weight: 600;">C#</span>
+                    </div>
+                </div>
+            </div>
+
+            <div onclick="openPosterGallery()" 
+                 style="cursor: pointer; border: 1px solid #fbcce0; border-radius: 16px; overflow: hidden; background: #ffffff; box-shadow: 0 8px 20px rgba(200, 164, 175, 0.4); transition: all 0.3s ease-in-out;"
+                 onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 15px 25px rgba(255, 123, 181, 0.35)'; this.style.borderColor='#ff7bb5';" 
+                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 20px rgba(200, 164, 175, 0.4)'; this.style.borderColor='#fbcce0';">
+                
+                <div style="height: 120px; overflow: hidden; background: #fcf0f5;">
+                    <img src="https://i.pinimg.com/1200x/bf/ce/58/bfce581d8ed653ac34d1159844b835f2.jpg" 
+                         style="width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform 0.5s;" 
+                         onmouseover="this.style.transform='scale(1.1)'" 
+                         onmouseout="this.style.transform='scale(1)'">
+                </div>
+                <div style="padding: 16px; background: #ffffff;">
+                    <h4 style="margin: 0; font-size: 14px; font-weight: 700; color: #2c3e50;">Pictures Design Series</h4>
+                    <p style="font-size: 11px; color: #7a8b99; margin-top: 4px;">Koleksi foto desain</p>
+                    <div style="margin-top: 10px; display: flex; gap: 5px; flex-wrap: wrap;">
+                        <span style="font-size: 9px; background: #fff0f5; color: #ec407a; padding: 4px 8px; border-radius: 6px; font-weight: 600;">Design</span>
+                        <span style="font-size: 9px; background: #fff0f5; color: #ec407a; padding: 4px 8px; border-radius: 6px; font-weight: 600;">Figma</span>
+                        <span style="font-size: 9px; background: #fff0f5; color: #ec407a; padding: 4px 8px; border-radius: 6px; font-weight: 600;">Arts</span>
+                    </div>
+                </div>
+            </div>
+
+            
+
+            </div>
+    </div>
+
+    <div id="poster-gallery" class="page-transition fade-out" style="position: absolute; inset: 0; background: linear-gradient(135deg, #f0f7ff, #fff0f5); padding: 40px; display: none; flex-direction: column; z-index: 10;">
+    <button id="btn-back-gallery" onclick="closePosterGallery()" style="align-self: flex-start; cursor: pointer; padding: 8px 18px; border-radius: 12px; border: 1px solid #cce3f5; background: #ffffff; color: #4ba3e3; font-weight: 600; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 10px rgba(164, 180, 200, 0.3); transition: all 0.2s;" onmouseover="this.style.background='#4ba3e3'; this.style.color='#ffffff'; this.style.boxShadow='0 4px 12px rgba(92, 170, 230, 0.4)';" onmouseout="this.style.background='#ffffff'; this.style.color='#4ba3e3'; this.style.boxShadow='0 4px 10px rgba(164, 180, 200, 0.3)';">
+        <i class="fas fa-arrow-left"></i> Back
+    </button>
+    
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; overflow-y: auto; margin-top: 20px; padding: 10px 5px;">
+        
+        <img src="Project_Name_9.png" 
+             style="width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: top; border-radius: 14px; border: 4px solid #ffffff; box-shadow: 0 6px 15px rgba(164, 180, 200, 0.35); cursor: pointer; transition: transform 0.3s;" 
+             onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"
+             onclick="openPreview(this.src)">
+             
+        <img src="pak arif poster new2.png" 
+             style="width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: top; border-radius: 14px; border: 4px solid #ffffff; box-shadow: 0 6px 15px rgba(164, 180, 200, 0.35); cursor: pointer; transition: transform 0.3s;" 
+             onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"
+             onclick="openPreview(this.src)">
+             
+        <img src="https://i.pinimg.com/1200x/bf/ce/58/bfce581d8ed653ac34d1159844b835f2.jpg" 
+             style="width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: top; border-radius: 14px; border: 4px solid #ffffff; box-shadow: 0 6px 15px rgba(164, 180, 200, 0.35); cursor: pointer; transition: transform 0.3s;" 
+             onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"
+             onclick="openPreview(this.src)">
+             
+        <img src="https://i.pinimg.com/736x/02/a5/2d/02a52d586dab97c8d03bad5f45c69109.jpg" 
+             style="width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: top; border-radius: 14px; border: 4px solid #ffffff; box-shadow: 0 6px 15px rgba(164, 180, 200, 0.35); cursor: pointer; transition: transform 0.3s;" 
+             onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"
+             onclick="openPreview(this.src)">
+             
+        <img src="https://i.pinimg.com/1200x/bf/ce/58/bfce581d8ed653ac34d1159844b835f2.jpg" 
+             style="width: 100%; aspect-ratio: 1/1; object-fit: cover; object-position: top; border-radius: 14px; border: 4px solid #ffffff; box-shadow: 0 6px 15px rgba(164, 180, 200, 0.35); cursor: pointer; transition: transform 0.3s;" 
+             onmouseover="this.style.transform='scale(1.04)'" onmouseout="this.style.transform='scale(1)'"
+             onclick="openPreview(this.src)">
+    </div>
+
+    <div id="image-preview-overlay" onclick="closePreview()" 
+         style="display: none; position: absolute; inset: 0; background: rgba(30, 35, 45, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 20; justify-content: center; align-items: center; cursor: zoom-out;">
+        <img id="preview-frame" src="" style="max-width: 85%; max-height: 85%; border-radius: 16px; border: 5px solid #ffffff; object-fit: contain; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+    </div>
+</div>
+</div>
+
+    <div id="content-certs" style="width: 20%; padding: 40px; flex-shrink: 0; background: linear-gradient(135deg, #f0f7ff, #fff0f5); text-align: center; position: relative;">
+    <h3 style="font-size: 24px; margin-bottom: 25px; font-weight: 700; color: #2c3e50;">My Certificates</h3>
+    
+    <div class="hide-scrollbar" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 500px; margin: 0 auto; overflow-y: auto; max-height: 320px; padding: 10px;">
+        
+        <div style="border-radius: 12px; overflow: hidden; border: 1px solid #cce3f5; background: #ffffff; cursor: pointer; box-shadow: 0 8px 20px rgba(164, 180, 200, 0.4); transition: 0.3s;" 
+             onclick="showCertPreview('M. Dimas Satrio Saputra_page-0001.jpg')"
+             onmouseover="this.style.transform='scale(1.03)'; this.style.borderColor='#4ba3e3';"
+             onmouseout="this.style.transform='scale(1)'; this.style.borderColor='#cce3f5';">
+            <img src="M. Dimas Satrio Saputra_page-0001.jpg" style="width: 100%; height: 120px; object-fit: cover; display: block;">
+            <p style="font-size: 12px; font-weight: 600; padding: 10px 5px; margin: 0; color: #3d4a54;">Sertifikat 1</p>
+        </div>
+
+        <div style="border-radius: 12px; overflow: hidden; border: 1px solid #fbcce0; background: #ffffff; cursor: pointer; box-shadow: 0 8px 20px rgba(200, 164, 175, 0.4); transition: 0.3s;" 
+             onclick="showCertPreview('M.Dimas Satrio Saputra - Sertifikat 5 Desember 2023_page-0001.jpg')"
+             onmouseover="this.style.transform='scale(1.03)'; this.style.borderColor='#ff7bb5';"
+             onmouseout="this.style.transform='scale(1)'; this.style.borderColor='#fbcce0';">
+            <img src="M.Dimas Satrio Saputra - Sertifikat 5 Desember 2023_page-0001.jpg" style="width: 100%; height: 120px; object-fit: cover; display: block;">
+            <p style="font-size: 12px; font-weight: 600; padding: 10px 5px; margin: 0; color: #3d4a54;">Sertifikat 2</p>
+        </div>
+
+        <div style="border-radius: 12px; overflow: hidden; border: 1px solid #cce3f5; background: #ffffff; cursor: pointer; box-shadow: 0 8px 20px rgba(164, 180, 200, 0.4); transition: 0.3s;" 
+             onclick="showCertPreview('Certificate Introduction to Microsoft Artificial Intelligence_M.DIMAS SATRIO SAPUTRA_page-0001.jpg')"
+             onmouseover="this.style.transform='scale(1.03)'; this.style.borderColor='#4ba3e3';"
+             onmouseout="this.style.transform='scale(1)'; this.style.borderColor='#cce3f5';">
+            <img src="Certificate Introduction to Microsoft Artificial Intelligence_M.DIMAS SATRIO SAPUTRA_page-0001.jpg" style="width: 100%; height: 120px; object-fit: cover; display: block;">
+            <p style="font-size: 12px; font-weight: 600; padding: 10px 5px; margin: 0; color: #3d4a54;">Sertifikat 3</p>
+        </div>
+
+        <div style="border-radius: 12px; overflow: hidden; border: 1px solid #fbcce0; background: #ffffff; cursor: pointer; box-shadow: 0 8px 20px rgba(200, 164, 175, 0.4); transition: 0.3s;" 
+             onclick="showCertPreview('mdimas-satrio-saputra-4eeced0b-bbf4-437a-9bda-6edcc72cd327-certificate (1)_page-0001.jpg')"
+             onmouseover="this.style.transform='scale(1.03)'; this.style.borderColor='#ff7bb5';"
+             onmouseout="this.style.transform='scale(1)'; this.style.borderColor='#fbcce0';">
+            <img src="mdimas-satrio-saputra-4eeced0b-bbf4-437a-9bda-6edcc72cd327-certificate (1)_page-0001.jpg" style="width: 100%; height: 120px; object-fit: cover; display: block;">
+            <p style="font-size: 12px; font-weight: 600; padding: 10px 5px; margin: 0; color: #3d4a54;">Sertifikat 4</p>
+        </div>
+
+        <div id="cert-preview-overlay" onclick="closeCertPreview()" 
+     style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(30, 35, 45, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 999; justify-content: center; align-items: center; cursor: zoom-out;">
+    <img id="cert-preview-img" src="" style="max-width: 85%; max-height: 85%; border-radius: 16px; border: 5px solid #ffffff; object-fit: contain; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+</div>
+
+        </div>
+    </div>
+
+            
+
+<style>
+    /* Efek Hover Ikon Sosmed Polosan */
+    .sosmed-icon-link {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.2s;
+    }
+    .sosmed-icon-link:hover {
+        transform: scale(1.25);
+        filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
+    }
+
+    /* Efek Hover untuk Tombol Close Profile */
+    .btn-close-profile {
+        background: linear-gradient(135deg, #ff8da1, #ffb1c7);
+        color: white;
+        border: none;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 11px;
+        font-weight: 700;
+        cursor: pointer;
+        width: 85%;
+        box-shadow: 0 4px 10px rgba(255,141,161,0.3);
+        transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.25s, box-shadow 0.25s;
+    }
+    .btn-close-profile:hover {
+        background: linear-gradient(135deg, #ff5c7c, #ff8da1); /* Warna gradasi bergeser lebih gelap/tegas */
+        transform: scale(1.03); /* Sedikit membesar halus */
+        box-shadow: 0 6px 14px rgba(255, 92, 124, 0.4); /* Bayangan mengikuti warna tombol */
+    }
+
+    /* ANIMASI MASUK (Pop-up Bounce) */
+    @keyframes popupIn {
+        0% { transform: translate(-50%, -50%) scale(0.7); opacity: 0; }
+        70% { transform: translate(-50%, -50%) scale(1.04); opacity: 0.9; }
+        100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+
+    /* ANIMASI KELUAR (Pop-up Scale Down) */
+    @keyframes popupOut {
+        0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        100% { transform: translate(-50%, -50%) scale(0.7); opacity: 0; }
+    }
+
+    /* ANIMASI OVERLAY */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+    .profile-animate-in { animation: popupIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+    .profile-animate-out { animation: popupOut 0.25s cubic-bezier(0.25, 1, 0.5, 1) forwards; }
+</style>
+
+<div id="content-services" style="width: 20%; padding: 12px 25px 25px 25px; flex-shrink: 0; background: linear-gradient(135deg, #f0f7ff, #fff0f5); display: flex; flex-direction: column; border-left: 1px solid #e6eef8; position: relative; box-sizing: border-box; overflow: hidden; justify-content: center;">
+    
+    <!-- Bagian Header Atas -->
+    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; background: rgba(255, 255, 255, 0.7); padding: 8px 12px; border-radius: 16px; border: 1.5px solid #cce3f5; box-shadow: 0 4px 15px rgba(164, 180, 200, 0.12); backdrop-filter: blur(5px); position: relative; z-index: 10;">
+        <div onclick="toggleCeisyProfile(event)" style="display: flex; align-items: center; gap: 12px; cursor: pointer;" title="Klik buat liat profil Céisyy-">
+            <div style="position: relative; flex-shrink: 0;">
+                <div style="width: 60px; height: 60px; background: linear-gradient(45deg, #ffafbd 0%, #ffc3a0 50%, #ffb1c7 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 2px; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                    <div style="background: #fff; border-radius: 50%; padding: 2px; display: flex;">
+                        <img src="https://i.pinimg.com/1200x/e1/60/c0/e160c0f40418972a5f0b7a0d4f877d57.jpg" style="width: 52px; height: 52px; border-radius: 50%; object-fit: cover;">
+                    </div>
+                </div>
+                <span style="width: 12px; height: 12px; background: #2ecc71; border-radius: 50%; display: inline-block; position: absolute; bottom: 2px; right: 2px; border: 2px solid #fff; animation: pulse 1.5s infinite;"></span>
+            </div>
+            <div>
+                <div style="display: flex; align-items: center; gap: 4px;">
+                    <h3 style="font-size: 16px; font-weight: 700; color: #2c3e50; margin: 0;">Céisyy-</h3>
+                    <i class="fas fa-check-circle" style="color: #4ba3e3; font-size: 12px;"></i>
+                </div>
+                <p style="font-size: 10px; color: #7a8b99; font-weight: 600; margin: 0;">Istri Hwavzell</p>
+            </div>
+        </div>
+        <div style="position: relative;">
+            <button onclick="toggleChatDropdown(event)" style="background: #ffffff; border: 1px solid #cce3f5; color: #4ba3e3; padding: 6px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; cursor: pointer; display: flex; align-items: center; gap: 4px; box-shadow: 0 2px 6px rgba(164,180,200,0.15); transition: 0.2s;">
+                Pertanyaan Umum <i class="fas fa-chevron-down" style="font-size: 9px;"></i>
+            </button>
+            
+            <div id="chatMenuDropdown" style="display: none; position: absolute; top: 35px; right: 0; background: #ffffff; border: 1px solid #e1f0fa; border-radius: 12px; box-shadow: 0 8px 24px rgba(164, 180, 200, 0.25); width: 170px; z-index: 100; overflow: hidden;">
+                <div onclick="selectDropdownQuestion('Dia bisa ngapain aja?')" 
+                     onmouseover="this.style.background='#e1f0fa'; this.style.color='#2b6cb0';" 
+                     onmouseout="this.style.background='transparent'; this.style.color='#3a4f66';"
+                     style="padding: 10px 12px; font-size: 11px; color: #3a4f66; cursor: pointer; border-bottom: 1px solid #f5f9fc; transition: background 0.2s, color 0.2s;"> 
+                     ✨ Daftar Jasa 
+                </div>
+                <div onclick="selectDropdownQuestion('Berapa harga jasanya?')" 
+                     onmouseover="this.style.background='#e1f0fa'; this.style.color='#2b6cb0';" 
+                     onmouseout="this.style.background='transparent'; this.style.color='#3a4f66';"
+                     style="padding: 10px 12px; font-size: 11px; color: #3a4f66; cursor: pointer; border-bottom: 1px solid #f5f9fc; transition: background 0.2s, color 0.2s;"> 
+                     💰 Cek Harga 
+                </div>
+                <div onclick="selectDropdownQuestion('Pake bahasa apa aja?')" 
+                     onmouseover="this.style.background='#e1f0fa'; this.style.color='#2b6cb0';" 
+                     onmouseout="this.style.background='transparent'; this.style.color='#3a4f66';"
+                     style="padding: 10px 12px; font-size: 11px; color: #3a4f66; cursor: pointer; transition: background 0.2s, color 0.2s;"> 
+                     🚀 Bahasa Pemrograman 
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bagian Chatbox -->
+    <div id="chatBox" class="hide-scrollbar" style="height: 250px; overflow-y: auto; margin-bottom: 15px; display: flex; flex-direction: column; gap: 12px; padding-right: 5px; position: relative; z-index: 1;">
+        <div id="chatMessages" style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: flex-end; gap: 10px; align-self: flex-start; max-width: 85%;">
+                <div style="width: 44px; height: 44px; background: linear-gradient(45deg, #ffafbd, #ffc3a0); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 1.5px;">
+                    <div style="background: #fff; border-radius: 50%; padding: 1.5px; display: flex;">
+                        <img src="https://i.pinimg.com/1200x/e1/60/c0/e160c0f40418972a5f0b7a0d4f877d57.jpg" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover;">
+                    </div>
+                </div>
+                <div class="ai-msg" style="margin: 0; background: #fce4ec; color: #c2185b; border: 1px solid #fbcce0; padding: 10px 14px; border-radius: 16px 16px 16px 4px; font-size: 12px; line-height: 1.5;">
+                    Hollaa! 👋 Ak Céisyy-, istrinya Hwavzell. Ada yang bisa dibantu?
+                </div>
+            </div>
+        </div>
+        <div id="typing" style="display: none; align-self: flex-start; margin-left: 54px; background: rgba(255, 255, 255, 0.7); border: 1px solid #fbcce0; padding: 6px 14px; border-radius: 12px; font-size: 11px; color: #ec407a; font-weight: 600;">
+            Céisyy- sedang ngetik...
+        </div>
+    </div>
+
+    <!-- Bagian Input -->
+    <div id="inputContainer" style="margin-top: auto; position: relative; background: #ffffff; border-radius: 25px; padding: 5px 5px 5px 15px; border: 1px solid #cce3f5; display: flex; align-items: center; z-index: 10;">
+        <input type="text" id="userInput" placeholder="Tanya Céisyy-..." style="flex: 1; border: none; background: transparent; font-family: inherit; font-size: 12px; outline: none; color: #2c3e50; padding: 6px 0;" onkeydown="if(event.key === 'Enter') sendChat()">
+        <button onclick="sendChat()" class="btn-send" style="background: linear-gradient(135deg, #5caae6, #ff8cb4); color: white; border: none; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+            <i class="fas fa-paper-plane" style="font-size: 11px;"></i>
+        </button>
+    </div>
+
+    <!-- Overlay -->
+    <div id="ceisyProfileOverlay" onclick="closeCeisyProfile(event)" style="display: none; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.15); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); z-index: 998;"></div>
+
+    <!-- Card Profil Popup -->
+    <div id="ceisyProfileCard" onclick="event.stopPropagation()" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fffcfc; border-radius: 24px; width: 300px; box-shadow: 0 15px 35px rgba(236, 64, 122, 0.2); z-index: 999; box-sizing: border-box; overflow: hidden; font-family: 'Segoe UI', Roboto, sans-serif; border: 1px solid rgba(255, 175, 189, 0.3); padding-bottom: 20px;">
+        
+        <div style="width: 100%; height: 105px; position: relative; overflow: hidden; background: #f0f7ff;">
+            <img src="https://i.pinimg.com/1200x/98/29/91/9829912b9f2cb392a43dd268e342545d.jpg" alt="Profile Banner" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        </div>
+
+        <div style="position: relative; width: 90px; height: 90px; margin: -45px auto 10px; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, #ffafbd, #ffb1c7); box-shadow: 0 4px 10px rgba(0,0,0,0.15); z-index: 2;">
+            <img src="https://i.pinimg.com/1200x/e1/60/c0/e160c0f40418972a5f0b7a0d4f877d57.jpg" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #fff;">
+        </div>
+
+        <div style="text-align: center; padding: 0 15px;">
+            <h4 style="font-size: 15px; font-weight: 700; color: #d81b60; margin: 0 0 2px;">⋆｡°✩ Céisyy- ✩°｡⋆</h4>
+            <p style="font-size: 11px; color: #78909c; font-weight: 600; margin: 0 0 12px;">Istri Sah Hwavzell 💍</p>
+            
+            <p style="font-size: 11px; color: #546e7a; line-height: 1.4; margin: 0 0 15px; font-weight: 500;">
+                I am cute and i like nasgor goreng<br>Tiap hari bangka dada
+            </p>
+
+            <!-- Bagian Medsos Polosan -->
+            <div style="display: flex; justify-content: center; gap: 20px; margin-bottom: 18px; align-items: center;">
+                <a href="https://instagram.com/keysaa_valencia" target="_blank" class="sosmed-icon-link">
+                    <i class="fab fa-instagram" style="color: #e1306c; font-size: 20px; line-height: 1;"></i>
+                </a>
+                <a href="https://tiktok.com/@username_kamu" target="_blank" class="sosmed-icon-link">
+                    <i class="fab fa-tiktok" style="color: #010101; font-size: 18px; line-height: 1;"></i>
+                </a>
+                <a href="https://discord.gg/link_kamu" target="_blank" class="sosmed-icon-link">
+                    <i class="fab fa-discord" style="color: #5865F2; font-size: 19px; line-height: 1;"></i>
+                </a>
+            </div>
+
+            <div style="background: #fff5f7; border-radius: 12px; padding: 8px 10px; margin-bottom: 15px; border: 1px solid #ffe4e8;">
+                <p style="font-size: 10px; color: #ec407a; margin: 0 0 5px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 4px;">
+                    🎵 Perfect - Ed Sheeran
+                </p>
+                <div style="width: 100%; height: 4px; background: #f8bbd0; border-radius: 10px; position: relative; margin-bottom: 6px;">
+                    <div style="width: 40%; height: 100%; background: #e91e63; border-radius: 10px;"></div>
+                </div>
+                <div style="width: 20px; height: 20px; background: #e91e63; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-size: 8px; cursor: pointer;">
+                    <i class="fas fa-play" style="margin-left: 1px;"></i>
+                </div>
+            </div>
+
+            <!-- Tombol Close Profile dengan Class Hover Baru -->
+            <button onclick="closeCeisyProfile(event)" class="btn-close-profile">
+                Close Profile
+            </button>
+        </div>
+    </div>
+
+
+
+</div>
+
+<style>
+    .support-card {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        cursor: pointer;
+    }
+    /* Hover global: naikin dikit & shadow lembut */
+    .support-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(164, 180, 200, 0.3) !important;
+    }
+    /* Animasi panah */
+    .support-card:hover .fa-chevron-right {
+        transform: translateX(5px);
+        transition: 0.3s;
+    }
+    .fa-chevron-right {
+        transition: 0.3s;
+        display: inline-block; 
+    }
+    
+    /* Style khusus QR Box Dana */
+    .qr-container {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out, opacity 0.3s ease;
+        opacity: 0;
+        background: #ffffff;
+        border: 0 solid #e6eef8;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: inset 0 2px 8px rgba(164, 180, 200, 0.05);
+    }
+    .qr-container.show {
+        max-height: 300px;
+        opacity: 1;
+        padding: 22px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        border: 1.5px solid #cce3f5;
+    }
+</style>
+
+<div id="content-support" class="page-transition hide-scrollbar" style="max-height: 430px; display: flex; flex-direction: column; font-family: sans-serif; background: linear-gradient(135deg, #f0f7ff, #fff0f5); border-radius: 15px; overflow: hidden; border: 1px solid #e6eef8;">
+    
+    <div style="display: flex; align-items: center; gap: 20px; padding: 30px 30px 15px 30px; border-bottom: 1px solid rgba(230, 238, 248, 0.7); flex-shrink: 0;">
+        <div style="flex: 1;">
+            <h3 style="margin-bottom: 10px; font-size: 20px; margin-top: 0; color: #2c3e50; font-weight: 700;">Dukung & Hubungi Keyy ✨</h3>
+            <p style="font-size: 13px; color: #607d8b; margin-bottom: 0; line-height: 1.6;">
+                Punya saran buat website ini? Nemu link musik yang rusak? Atau mau ngajakin mabar? Silakan hubungi lewat opsi di bawah gais!
+            </p>
+        </div>
+        <div style="flex-shrink: 0;">
+            <img src="https://i.pinimg.com/736x/cd/32/8f/cd328f8157b904ebae2b81d62331fca4.jpg" 
+                 alt="Cute Neko" 
+                 style="width: 80px; height: 80px; object-fit: contain; border-radius: 10px; display: block;">
+        </div>
+    </div>
+
+    <div class="hide-scrollbar" style="overflow-y: auto; padding: 18px 30px 30px 30px; display: flex; flex-direction: column; gap: 16px;">
+        
+        <a href="https://saweria.co/hwavzell" target="_blank" class="support-card" 
+   onmouseover="this.style.borderColor='#ff7bb5'; this.style.background='#fff0f4'" 
+   onmouseout="this.style.borderColor='#2c3e50'; this.style.background='#ffffff'"
+   style="text-decoration: none; display: flex; align-items: center; justify-content: space-between; padding: 16px; background: #ffffff; border: 1px solid #2c3e50; border-radius: 15px; color: #ff7bb5; box-shadow: 0 4px 12px rgba(255, 227, 236, 0.4);">
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <i class="fas fa-coffee" style="font-size: 20px;"></i>
+        <div>
+            <strong style="display: block; font-size: 14px; color: #2c3e50; font-weight: 700;">Traktir Jajan di Saweria</strong>
+            <span style="font-size: 12px; color: #7a8b99;">Bantu web gajelas ini tetap hidup awokawok</span>
+        </div>
+    </div>
+    <i class="fas fa-chevron-right" style="color: #ff7bb5;"></i>
+</a>
+
+<a href="https://trakteer.id/hwavzell2" target="_blank" class="support-card"
+   onmouseover="this.style.borderColor='#f06292'; this.style.background='#fff3f3'" 
+   onmouseout="this.style.borderColor='#2c3e50'; this.style.background='#ffffff'"
+   style="text-decoration: none; display: flex; align-items: center; justify-content: space-between; padding: 16px; background: #ffffff; border: 1px solid #2c3e50; border-radius: 15px; color: #f06292; box-shadow: 0 4px 12px rgba(255, 227, 227, 0.4);">
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <i class="fas fa-utensils" style="font-size: 20px;"></i>
+        <div>
+            <strong style="display: block; font-size: 14px; color: #2c3e50; font-weight: 700;">Dukung Lewat Trakteer</strong>
+            <span style="font-size: 12px; color: #7a8b99;">Beliin cilok atau seblak biar semangat ngoding</span>
+        </div>
+    </div>
+    <i class="fas fa-chevron-right" style="color: #f06292;"></i>
+</a>
+
+<div style="display: flex; flex-direction: column;">
+    <div onclick="toggleDanaQR()" class="support-card"
+         onmouseover="this.style.borderColor='#118eea'; this.style.background='#eef7ff'" 
+         onmouseout="this.style.borderColor='#2c3e50'; this.style.background='#ffffff'"
+         style="display: flex; align-items: center; justify-content: space-between; padding: 16px; background: #ffffff; border: 1px solid #2c3e50; border-radius: 15px; color: #4ba3e3; box-shadow: 0 4px 12px rgba(204, 227, 245, 0.4);">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <i class="fas fa-wallet" style="font-size: 20px;"></i>
+            <div>
+                <strong style="display: block; font-size: 14px; color: #2c3e50; font-weight: 700;">Kirim via DANA (QR Code)</strong>
+                <span style="font-size: 12px; color: #7a8b99;">Klik buat munculin QR, langsung scan beres</span>
+            </div>
+        </div>
+        <i id="dana-icon" class="fas fa-chevron-right" style="color: #4ba3e3;"></i>
+    </div>
+    
+    <div id="dana-qr-box" class="qr-container">
+        <p style="font-size: 12px; color: #2c3e50; margin-bottom: 12px; font-weight: 700;">Scan QR DANA di bawah ini gais:</p>
+        <img src="IMG_3952.png" 
+             alt="QR DANA Keyy" 
+             style="width: 160px; height: 160px; object-fit: contain; border: 1px solid #2c3e50; box-shadow: 0 5px 20px rgba(164, 180, 200, 0.3); border-radius: 10px;">
+    </div>
+</div>
+
+<a href="https://www.instagram.com/hwavzell" target="_blank" class="support-card"
+   onmouseover="this.style.borderColor='#e1306c'; this.style.background='#fcfdfe'" 
+   onmouseout="this.style.borderColor='#2c3e50'; this.style.background='#ffffff'"
+   style="text-decoration: none; display: flex; align-items: center; justify-content: space-between; padding: 16px; background: #ffffff; border: 1px solid #2c3e50; border-radius: 15px; color: #e1306c; box-shadow: 0 4px 12px rgba(230, 238, 248, 0.5);">
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <i class="fab fa-instagram" style="font-size: 20px; color: #e1306c;"></i>
+        <div>
+            <strong style="display: block; font-size: 14px; color: #2c3e50; font-weight: 700;">Lapor Bug / Chat DM</strong>
+            <span style="font-size: 12px; color: #7a8b99;">Fast respon kalau lagi gak tidur</span>
+        </div>
+    </div>
+    <i class="fas fa-chevron-right" style="color: #e1306c;"></i>
+</a>
+
+    </div>
+</div>
+        </div>
+
+        <style>
+    .social-link {
+        font-size: 20px; /* Ukuran standar untuk GitHub & Instagram */
+        transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+        text-decoration: none;
+    }
+    
+    .social-link:hover {
+        transform: scale(1.1);
+    }
+
+    .github-link { color: #24292e; }
+    .github-link:hover { color: #5c646d; }
+
+    .instagram-link { color: #e1306c; }
+    .instagram-link:hover { color: #ff508b; }
+
+    /* Discord dikasih warna khusus dan font-size lebih kecil agar seimbang */
+    .discord-link { 
+        color: #5865f2; 
+        font-size: 18px; 
+    }
+    .discord-link:hover { color: #7983f5; }
+</style>
+
+<div style="display: flex; align-items: center; gap: 20px; padding: 20px 40px; border-top: 1px solid #f0f0f0; background: #fff; position: relative; z-index: 10;">
+    <span style="font-weight: 700; font-size: 14px; color: #111;">Follow me:</span>
+    <div style="display: flex; gap: 20px; align-items: center;">
+        <!-- GitHub -->
+        <a href="https://github.com/dimskyzo" target="_blank" class="social-link github-link">
+            <i class="fab fa-github"></i>
+        </a>
+        
+        <!-- Instagram -->
+        <a href="https://instagram.com/hwavzell" target="_blank" class="social-link instagram-link">
+            <i class="fab fa-instagram"></i>
+        </a>
+        
+        <!-- Discord -->
+        <a href="https://discord.gg/username" target="_blank" class="social-link discord-link">
+            <i class="fab fa-discord"></i>
+        </a>
+    </div>
+</div>
+    </div>
+</div>
+</body>
+<script>
+const reveals = document.querySelectorAll(".reveal");
+let currentAlbumIndex = 0;
+
+let activeSongKey = null; 
+function revealOnScroll() {
+    const windowHeight = window.innerHeight;
+
+    reveals.forEach((el) => {
+        const elementTop = el.getBoundingClientRect().top;
+
+        if (elementTop < windowHeight - 100) {
+            el.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll); // biar hero langsung muncul
+
+const openBtn = document.getElementById("openMusic");
+const modal = document.getElementById("musicModal");
+const closeBtn = document.getElementById("closeMusic");
+
+// Pas buka modal musik
+openMusic.onclick = () => {
+    musicModal.style.display = "flex";
+    document.body.classList.add('modal-open'); // Kunci scroll
+    setTimeout(() => musicModal.classList.add('show'), 10);
+};
+
+// Pas tutup modal musik
+closeMusic.onclick = () => {
+    musicModal.classList.remove('show');
+    setTimeout(() => {
+        musicModal.style.display = "none";
+        document.body.classList.remove('modal-open'); // Buka kunci scroll
+    }, 300);
+};
+
+const audio = document.getElementById("audio");
+const progress = document.getElementById("progress");
+const volume = document.getElementById("volume");
+
+const albums = [
+  {
+    name: "Wuthering Waves",
+    songs: [
+        {
+        title: "Moments Captured Among the Stars",
+        artist: "Wuthering Waves",
+        src: "https://files.catbox.moe/4unce7.mp3",
+        cover: "https://i.imgur.com/DQKoPQd.png",
+      album: "Wuthering Waves"
+      },
+      {
+        title: "Throttle Up!",
+        artist: "Wuthering Waves",
+        src: "https://files.catbox.moe/nnfccc.mp3",
+        cover: "https://i.imgur.com/DQKoPQd.png",
+      album: "Wuthering Waves"
+      },
+      {
+        title: "A Small Miracle",
+        artist: "Fleet Snowfluff",
+        src: "https://files.catbox.moe/3ne0n6.mp3",
+        cover: "https://i.imgur.com/MxCet9y.png",
+      album: "Wuthering Waves"
+      },
+      {
+        title: "Voyaging Star's",
+        artist: "Wuthering Waves",
+        src: "https://files.catbox.moe/nbwzb0.mp3",
+        cover: "https://i.imgur.com/MxCet9y.png",
+      album: "Wuthering Waves"
+      },
+      
+      {
+        title: "Running For Your Life",
+        artist: "Wuthering Waves",
+        src: "Running For Your Life - Wuthering Waves - Topic (128k).mp3",
+        cover: "https://i1.sndcdn.com/artworks-y0A93Etn86zHCMAa-xh5V5A-t500x500.jpg",
+      album: "Wuthering Waves"
+      },
+      {
+        title: "Lulala! Lululala! (Japanese Version)",
+        artist: "Wuthering Waves",
+        src: "Lulala! Lululala! (Japanese Version).mp3",
+        cover: "https://is1-ssl.mzstatic.com/image/thumb/Music211/v4/14/53/71/14537126-a041-678e-4b7b-875a7a800cce/4894965758344.jpg/600x600bf-60.jpg",
+      album: "Wuthering Waves"
+      },
+      {
+        title: "Daisy Crown (JP)",
+        artist: "Wuthering Waves",
+        src: "Empty old City - Daisy Crown.mp3",
+        cover: "https://i.imgur.com/V2r6OHT.jpeg",
+      album: "Wuthering Waves"
+      },
+      {
+        title: "L!!!!GHT",
+        artist: "Wuthering Waves",
+        src: "sigy.mp3",
+        cover: "ab67616d0000b273a4fdb6ff53f8f6429d6584df_waifu2x_art_noise3_scale.png",
+      album: "Wuthering Waves"
+      }
+    ]
+  },
+  {
+    name: "Kpop",
+    songs: [
+      {
+        title: "LIKE THAT",
+        artist: "BABYMONSTER",
+        src: "BABYMONSTER - LIKE THAT (Official Audio).mp3",
+        cover: "ab67616d00001e024f6afc385052250c766a5683_waifu2x_art_noise3_scale.png",
+      album: "KPOP"
+      },
+      {
+        title: "CLIK CLAK",
+        artist: "BABYMONSTER",
+        src: "CLIK CLAK.mp3",
+        cover: "https://kpopforallofficial.com/wp-content/uploads/2024/11/4842.jpg",
+      album: "KPOP"
+      },
+      {
+        title: "WOKE UP",
+        artist: "XG",
+        src: "XG - WOKE UP (Official Music Video) - XG (128k).mp3",
+        cover: "https://images.genius.com/1bc1d7c9eccd538f4ce3ae759ba63980.959x959x1.png",
+      album: "KPOP"
+      },
+      {
+        title: "BANG BANG",
+        artist: "IVE",
+        src: "YTDown_YouTube_BANG-BANG_Media_q6Ey0coO-wE_009_128k.mp3",
+        cover: "https://i.imgur.com/491hNMw.jpeg",
+      album: "KPOP"
+      },
+      {
+        title: "DASH",
+        artist: "NMIXX",
+        src: "NMIXX (엔믹스) 'DASH' Official Audio.mp3",
+        cover: "https://images.genius.com/d6f085c1026da55e58be380bf4b4f3b6.1000x1000x1.png",
+      album: "KPOP"
+      },
+      {
+        title: "FaSHioN",
+        artist: "CORTIS",
+        src: "CORTIS (코르티스) 'FaSHioN' (Color Coded Lyrics).mp3",
+        cover: "https://akcdn.detik.net.id/visual/2025/08/12/potret-5-member-cortis-boyband-adik-bts-txt-1754982725564_169.jpeg?w=900&q=90",
+      album: "KPOP"
+      }
+    ,
+      {
+        title: "SPAGHETTI",
+        artist: "LE SSERAFIM",
+        src: "LE SSERAFIM 르세라핌 'SPAGHETTI (feat. j-hope of BTS)' Official Audio.mp3",
+        cover: "https://i.ytimg.com/vi/WOuYnod32UU/maxresdefault.jpg",
+      album: "KPOP"
+      }
+    ]
+  },
+  {
+    name: "Indonesia's Songs",
+    songs: [
+      {
+        title: "Somebody's Pleasure",
+        artist: "Aziz Hedra",
+        src: "Aziz Hedra - Somebody's Pleasure (Lyrics).mp3",
+        cover: "ab67616d0000b273f50e57822d46e8b6f08db886_waifu2x_art_noise3_scale.png",
+      album: "Random"
+      },
+      {
+        title: "To The Bone",
+        artist: "Pamungkas",
+        src: "To The Bone - Pamungkas (Lirik Lagu & Terjemahan).mp3",
+        cover: "eb4ea7cc8d0129d24d91dbe83111355d.1000x1000x1_waifu2x_art_noise3_scale.png",
+      album: "Random"
+      }
+    ]
+  },
+  {
+    name: "Random2",
+    songs: [
+      {
+        title: "Random Song 1",
+        src: "music/random1.mp3",
+        cover: "https://i.pinimg.com/736x/26/3f/d5/263fd5a54e8b8cea4ac3510977f081f3.jpg",
+      album: "Random"
+      }
+    ]
+  }
+];
+
+let currentAlbum = [];
+let currentIndex = 0;
+
+function loadAlbum(index) {
+  currentAlbumIndex = index;
+  currentAlbum = albums[index].songs;
+
+  document.getElementById("albumTitle").innerText = albums[index].name;
+
+  document.querySelectorAll(".playlist img").forEach((img, i) => {
+    img.classList.toggle("active", i === index);
+  });
+
+  const list = document.getElementById("songList");
+list.scrollLeft = 0;
+  // kosongin dulu
+  list.innerHTML = "";
+
+  currentAlbum.forEach((song, i) => {
+    const div = document.createElement("div");
+    div.className = "song-item";
+
+    div.innerHTML = `
+  <img src="${song.cover}">
+  <h4>${song.title}</h4>
+  <small class="artist">${song.artist || "Unknown Artist"}</small>
+`;
+
+    div.onclick = () => playSelected(i);
+    list.appendChild(div);
+
+    // 🔥 STAGGER ANIMATION (ini kuncinya)
+    setTimeout(() => {
+      div.classList.add("show");
+    }, i * 80); // makin gede = makin lama muncul satu-satu
+  });
+
+  updateHighlight();
+}
+
+
+function playSelected(i) {
+  currentIndex = i;
+  const song = currentAlbum[i];
+
+  audio.src = song.src;
+  audio.play();
+
+  document.getElementById("artistName").innerText = song.artist || "Unknown Artist";
+  document.getElementById("title").innerText = song.title;
+  document.getElementById("cover").src = song.cover;
+  document.getElementById("playBtn").innerText = "❚❚";
+
+  // 🔥 SIMPAN ACTIVE GLOBAL
+  activeSongKey = `${currentAlbumIndex}-${i}`;
+
+  updateHighlight();
+}
+
+function updateHighlight() {
+  document.querySelectorAll(".song-item").forEach((el, i) => {
+    const key = `${currentAlbumIndex}-${i}`;
+    el.classList.toggle("active", key === activeSongKey);
+  });
+}
+
+function playSong() {
+  if (audio.paused) {
+    audio.play();
+    document.getElementById("playBtn").innerText = "❚❚";
+  } else {
+    audio.pause();
+    document.getElementById("playBtn").innerText = "▶︎";
+  }
+}
+
+function nextSong() {
+  currentIndex = (currentIndex + 1) % currentAlbum.length;
+  playSelected(currentIndex);
+}
+
+function prevSong() {
+  currentIndex = (currentIndex - 1 + currentAlbum.length) % currentAlbum.length;
+  playSelected(currentIndex);
+}
+
+/* progress */
+audio.ontimeupdate = () => {
+  if (audio.duration) {
+    const val = (audio.currentTime / audio.duration) * 100;
+    progress.value = val;
+    
+    // Trik biar bar musiknya berwarna pink sesuai progress lagu
+    progress.style.background = `linear-gradient(to right, #ff4ecd ${val}%, #e0e0e0 ${val}%)`;
+  }
+
+  document.getElementById("current").innerText = formatTime(audio.currentTime);
+};
+progress.oninput = () => {
+  audio.currentTime = (progress.value / 100) * audio.duration;
+};
+
+/* volume */
+volume.oninput = () => {
+  audio.volume = volume.value;
+};
+
+window.onload = () => {
+  loadAlbum(0);
+};
+
+
+
+audio.onloadedmetadata = () => {
+  document.getElementById("duration").innerText = formatTime(audio.duration);
+};
+
+function formatTime(sec) {
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+  return `${m}:${s < 10 ? "0" : ""}${s}`;
+}
+
+audio.onended = () => {
+  nextSong();
+};
+
+
+
+
+
+
+const songList = document.getElementById('songList');
+
+songList.addEventListener('wheel', (evt) => {
+    evt.preventDefault();
+    // Pastikan tulisannya 'scrollLeft' (pake huruf t di akhir)
+    songList.scrollLeft += evt.deltaY * 8; 
+}, { passive: false });
+
+
+// Paksa browser buat scroll ke paling atas setiap kali halaman di-refresh
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+};
+
+if (history.scrollRestoration) {
+    history.scrollRestoration = 'manual';
+} else {
+    window.onunload = function () {
+        window.scrollTo(0, 0);
+    };
+}
+</script>
+
+<script>
+function openProfile() {
+    document.getElementById('modalProfil').classList.add('active');
+}
+
+function closeProfile() {
+    document.getElementById('modalProfil').classList.remove('active');
+}
+
+// Tambahan: Kalo diklik luar box, modal nutup
+window.addEventListener('click', function(e) {
+    const modal = document.getElementById('modalProfil');
+    if (e.target === modal) {
+        closeProfile();
+    }
+});
+
+function switchTab(tab) {
+    const container = document.getElementById('tab-container');
+    const indicator = document.getElementById('nav-indicator');
+    
+    // Mapping posisi geser (tiap tab loncat 20% karena total width 500%)
+    const positions = {
+        'home': { pos: '0%', el: 'nav-home' },
+        'projects': { pos: '-20%', el: 'nav-projects' },
+        'certs': { pos: '-40%', el: 'nav-certs' },
+        'services': { pos: '-60%', el: 'nav-services' },
+        'support': { pos: '-80%', el: 'nav-support' }
+    };
+
+    const target = positions[tab];
+    if (!target) return;
+
+    // Geser kontainer
+    container.style.transform = `translateX(${target.pos})`;
+
+    // Reset & Update navigasi
+    const allNavs = ['nav-home', 'nav-projects', 'nav-certs', 'nav-services', 'nav-support'];
+    allNavs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.style.color = '#666';
+            el.style.fontWeight = '500';
+        }
+    });
+
+    const activeEl = document.getElementById(target.el);
+    activeEl.style.color = '#000';
+    activeEl.style.fontWeight = '600';
+
+    // Update posisi background abu-abu (indicator)
+    indicator.style.left = activeEl.offsetLeft + 'px';
+    indicator.style.width = activeEl.offsetWidth + 'px';
+}
+
+// Inisialisasi posisi emblem pas pertama kali modal buka
+function openProfile() {
+    document.getElementById('modalProfil').classList.add('active');
+    setTimeout(() => { switchTab('home'); }, 10);
+}
+
+function openPosterGallery() {
+    const list = document.getElementById('main-project-list');
+    const gallery = document.getElementById('poster-gallery');
+
+    // List project utama ilang (ngecil + fade out)
+    list.classList.add('fade-out');
+    list.classList.remove('fade-in');
+
+    setTimeout(() => {
+        list.style.display = 'none';
+        gallery.style.display = 'flex';
+        
+        // Gallery muncul (nge-zoom gede + fade in)
+        setTimeout(() => {
+            gallery.classList.add('fade-in');
+            gallery.classList.remove('fade-out');
+        }, 50);
+    }, 400); // Nunggu animasi fade-out selesai
+}
+
+function closePosterGallery() {
+    const list = document.getElementById('main-project-list');
+    const gallery = document.getElementById('poster-gallery');
+
+    // Gallery ilang
+    gallery.classList.add('fade-out');
+    gallery.classList.remove('fade-in');
+
+    setTimeout(() => {
+        gallery.style.display = 'none';
+        list.style.display = 'block';
+        
+        // List utama muncul lagi
+        setTimeout(() => {
+            list.classList.add('fade-in');
+            list.classList.remove('fade-out');
+        }, 50);
+    }, 400);
+}
+</script>
+<script>
+function openProfile() {
+    // Reset ke tab home dulu sebelum modal muncul
+    switchTab('home'); 
+    
+    const modal = document.getElementById('modalProfil');
+    modal.classList.add('active');
+    document.body.classList.add('modal-open');
+}
+
+function closeProfile() {
+    const modal = document.getElementById('modalProfil');
+    modal.classList.add('closing');
+    
+    setTimeout(() => {
+        modal.classList.remove('active');
+        modal.classList.remove('closing');
+        document.body.classList.remove('modal-open');
+        
+        // Tambahan: pastiin kalo lagi buka gallery, gallery-nya ketutup pas modal profil keluar
+        if(typeof closePosterGallery === "function") {
+            closePosterGallery();
+        }
+    }, 400);
+}
+
+// Update juga event listener klik luar box agar menggunakan fungsi closeProfile yang baru
+window.onclick = function(e) {
+    const modal = document.getElementById('modalProfil');
+    if (e.target === modal) {
+        closeProfile();
+    }
+};
+// Taruh di luar fungsi biar file audio di-load sekali aja pas web dibuka
+const clickSound = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3'); 
+// Link di atas suara "Pop" yang bersih dan stabil
+
+function sendChat() {
+    const input = document.getElementById('userInput');
+    const msgContainer = document.getElementById('chatMessages');
+    const chatBox = document.getElementById('chatBox');
+    const typing = document.getElementById('typing');
+    const text = input.value.trim().toLowerCase();
+
+    if (text === "") return;
+
+    // MAINKAN SUARA KLIK
+    clickSound.currentTime = 0;
+    clickSound.play().catch(e => console.log("Browser block sound: Klik layar dulu sekali!"));
+
+    // 1. Munculin pesan User (Gaya Biru Pastel Soft biar seimbang)
+    msgContainer.innerHTML += `
+        <div style="display: flex; justify-content: flex-end; width: 100%; animation: slideIn 0.3s ease-out; margin-bottom: 4px;">
+            <div class="user-msg" style="margin: 0; background: #e3f2fd; color: #0d47a1; border: 1px solid #bbdefb; padding: 10px 14px; border-radius: 16px 16px 4px 16px; font-size: 12px; line-height: 1.5; max-width: 85%; box-shadow: 0 4px 10px rgba(0,0,0,0.02);">
+                ${input.value}
+            </div>
+        </div>
+    `;
+    input.value = ""; 
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    // 2. Munculin animasi "Sedang mengetik..."
+    typing.style.display = "block";
+    chatBox.scrollTop = chatBox.scrollHeight;
+
+    // 3. Logic Jawaban AI
+    setTimeout(() => {
+        typing.style.display = "none"; 
+        
+        let response = "Gataw, blm disetting buat ngadepin pertanyaan tolol kek gitu";
+
+        if (text.includes("halo") || text.includes("hi") || text.includes("hai")) {
+            response = "Halo juga! Ada yang mau di tanyain ga?";
+        } else if (text.includes("jasa") || text.includes("bisa") || text.includes("ngapain")) {
+            response = "Ak bisa apa aja kok, allrole ak mah santai";
+        } else if (text.includes("harga") || text.includes("biaya") || text.includes("berapa")) {
+            response = "Harga bersahabat kok, mulai dari 100rb-an. Tergantung tingkat kesulitan ya!";
+        } else if (text.includes("pake") || text.includes("teknologi") || text.includes("bahasa")) {
+            response = "Gue biasa pake HTML, Tailwind CSS, JavaScript, dan React.";
+        } else if (text.includes("anjai") || text.includes("gila") || text.includes("keren") || text.includes("gelo")) {
+            response = "Awokawok kelaz kink";
+        } else if (text.includes("gaada") || text.includes("takde")) {
+            response = "Yawdah";
+        } else if (text.includes("kok gitu")) {
+            response = "Ya lu nya gitu jir";
+        }
+
+        // 4. Munculin pesan AI (Ukuran foto profil diperbesar agar serasi: Container 44px, Img 38px)
+        msgContainer.innerHTML += `
+            <div style="display: flex; align-items: flex-end; gap: 10px; align-self: flex-start; max-width: 85%; animation: slideIn 0.3s ease-out; margin-bottom: 4px;">
+                <div style="width: 44px; height: 44px; background: linear-gradient(45deg, #ffafbd, #ffc3a0); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 1.5px;">
+                    <div style="background: #fff; border-radius: 50%; padding: 1.5px; display: flex;">
+                        <img src="https://i.pinimg.com/1200x/e1/60/c0/e160c0f40418972a5f0b7a0d4f877d57.jpg" style="width: 38px; height: 38px; border-radius: 50%; object-fit: cover;">
+                    </div>
+                </div>
+                <div class="ai-msg" style="margin: 0; background: #fce4ec; color: #c2185b; border: 1px solid #fbcce0; padding: 10px 14px; border-radius: 16px 16px 16px 4px; font-size: 12px; line-height: 1.5; box-shadow: 0 4px 10px rgba(236, 64, 122, 0.08);">
+                    ${response}
+                </div>
+            </div>
+        `;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, 1500);
+}
+
+function openPreview(src) {
+    const overlay = document.getElementById('image-preview-overlay');
+    const img = document.getElementById('preview-frame');
+    img.src = src;
+    overlay.style.display = 'flex';
+}
+
+function closePreview() {
+    document.getElementById('image-preview-overlay').style.display = 'none';
+}
+
+function showCertPreview(imgSrc) {
+            const overlay = document.getElementById('cert-preview-overlay');
+            const fullImg = document.getElementById('cert-preview-img');
+            if(overlay && fullImg) {
+                fullImg.src = imgSrc;
+                overlay.style.display = 'flex';
+            }
+        }
+        function closeCertPreview() {
+            const overlay = document.getElementById('cert-preview-overlay');
+            if(overlay) {
+                overlay.style.display = 'none';
+            }
+        }
+</script>
+
+<!-- ########################################################################## -->
+<!-- #                               HP                                # -->
+<!-- ########################################################################## -->
+<script>
+   function toggleMobileMenu() {
+    const nav = document.getElementById('nav-list');
+    const icon = document.querySelector('.menu-toggle i');
+    
+    nav.classList.toggle('active');
+
+    // Animasi rotasi icon Bar ke Silang
+    if (nav.classList.contains('active')) {
+        icon.style.transform = "rotate(90deg)";
+        setTimeout(() => {
+            icon.classList.replace('fa-bars', 'fa-times');
+        }, 100);
+    } else {
+        icon.style.transform = "rotate(0deg)";
+        setTimeout(() => {
+            icon.classList.replace('fa-times', 'fa-bars');
+        }, 100);
+    }
+}
+</script>
+<!-- Script Klik / Toggle QR DANA + Animasi Rotasi Icon Panah -->
+<script>
+    function toggleDanaQR() {
+        const qrBox = document.getElementById('dana-qr-box');
+        const icon = document.getElementById('dana-icon');
+        
+        if (qrBox.classList.contains('show')) {
+            qrBox.classList.remove('show');
+            icon.style.transform = 'rotate(0deg)'; 
+        } else {
+            qrBox.classList.add('show');
+            icon.style.transform = 'rotate(90deg)'; 
+        }
+    }
+</script>
+
+
+    <script>
+        function toggleChatDropdown(event) {
+            event.stopPropagation();
+            const dropdown = document.getElementById('chatMenuDropdown');
+            if (dropdown) {
+                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+            }
+            closeCeisyProfile();
+        }
+
+        function selectDropdownQuestion(questionText) {
+            const input = document.getElementById('userInput');
+            if (input) {
+                input.value = questionText;
+                sendChat();
+            }
+            document.getElementById('chatMenuDropdown').style.display = 'none';
+        }
+
+        // Buka Profil & Aktifkan Blur
+        function toggleCeisyProfile(event) {
+            event.stopPropagation();
+            const profileCard = document.getElementById('ceisyProfileCard');
+            const overlay = document.getElementById('ceisyProfileOverlay');
+            if (profileCard && overlay) {
+                profileCard.style.display = 'block';
+                overlay.style.display = 'block';
+            }
+            const dropdown = document.getElementById('chatMenuDropdown');
+            if (dropdown) dropdown.style.display = 'none';
+        }
+
+        // CUMA FUNGSI INI YANG BOLEH NUTUP PROFIL (Dipicu Tombol Close)
+        function closeCeisyProfile() {
+            const profileCard = document.getElementById('ceisyProfileCard');
+            const overlay = document.getElementById('ceisyProfileOverlay');
+            if (profileCard) profileCard.style.display = 'none';
+            if (overlay) overlay.style.display = 'none';
+        }
+
+        // FIX: Klik luar area sekarang CUMA nutup dropdown, GAK BOLEH ganggu profil Ceisy!
+        document.addEventListener('click', function() {
+            const dropdown = document.getElementById('chatMenuDropdown');
+            if (dropdown) dropdown.style.display = 'none';
+            // closeCeisyProfile(); <-- KODE ANJING INI GUA HAPUS BIAR GAK AUTO-TUTUP LAGI CO!
+        });
+
+        function toggleCeisyProfile(event) {
+    event.stopPropagation();
+    const card = document.getElementById('ceisyProfileCard');
+    const overlay = document.getElementById('ceisyProfileOverlay');
+    
+    // Reset animasi agar bisa dimainkan ulang saat diklik lagi
+    card.style.display = 'block';
+    overlay.style.display = 'block';
+    
+    card.classList.remove('animate-popup');
+    void card.offsetWidth; // Trigger reflow browser
+    card.classList.add('animate-popup');
+}
+
+function toggleCeisyProfile(event) {
+    if (event) event.stopPropagation();
+    const card = document.getElementById('ceisyProfileCard');
+    const overlay = document.getElementById('ceisyProfileOverlay');
+    
+    card.style.display = 'block';
+    overlay.style.display = 'block';
+    
+    // Terapkan animasi masuk
+    card.className = "profile-animate-in";
+    overlay.style.animation = "fadeIn 0.25s ease forwards";
+}
+
+function closeCeisyProfile(event) {
+    if (event) event.stopPropagation();
+    const card = document.getElementById('ceisyProfileCard');
+    const overlay = document.getElementById('ceisyProfileOverlay');
+    
+    // Terapkan animasi keluar
+    card.className = "profile-animate-out";
+    overlay.style.animation = "fadeOut 0.25s ease forwards";
+    
+    // Tunggu animasi selesai baru ubah display jadi none
+    setTimeout(() => {
+        card.style.display = 'none';
+        overlay.style.display = 'none';
+    }, 250); // Durasi disamakan dengan CSS (0.25s)
+}
+    </script>
+</html>
